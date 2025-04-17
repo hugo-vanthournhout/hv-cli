@@ -24,9 +24,8 @@ uv ruff check .
 ```
 
 ## Setup
-1. Copy `credentials.example.yaml` to `credentials.yaml`
-2. Add your tokens
-3. install slack cli
+1. Copy `credentials.example.yaml` to `credentials.yaml` and `variables.example.yaml` to `variables.yaml`
+2. Add your tokens and variables
 
 ## Commands & Aliases
 
