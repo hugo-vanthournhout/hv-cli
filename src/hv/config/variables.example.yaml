@@ -1,0 +1,101 @@
+# src/hv/config/variables.example.yaml
+
+ai:
+  default_prompt: "Your default AI prompt here"
+  output_file: "ai_full_project.txt"
+  text_extensions: ['.txt', '.py', '.js', '.java', '.c', '.cpp', '.h', '.hpp','.css', '.html', '.xml', '.json', '.yaml', '.yml', '.md','.rst', '.ini', '.conf', '.sh', '.bash', '.zsh', '.sql', '.go', '.rs', '.ts', '.jsx', '.tsx', '.vue', '.rb', '.php', '.pl', '.kt', '.scala', '.swift', '.r', '.lua', '.tcl', '.dockerfile', '.toml'] #, '.csv']
+  warning_paths:
+    - "$HOME"  # Will be replaced with actual home path
+    - "/etc"
+    - "/usr"
+    - "/var"
+    - "/opt"
+    - "/root"
+    - "/Documents"
+  
+  ignore_patterns:
+    - "*.pyc"
+    - "__pycache__/*"
+    - ".git/*"
+    - "*.env"
+    - ".venv/*"
+    - "venv/*"
+    - ".uv/*"
+    - "node_modules/*"
+    - "*.log"
+    - "*.sqlite3"
+    - "*.db"
+    - "*.pdf"
+    - "*.jpg"
+    - "*.jpeg"
+    - "*.png"
+    - "*.gif"
+    - "*.mp4"
+    - "*.mov"
+    - "*.bin"
+    - "*.exe"
+    - "*.dll"
+    - "dist/*"
+    - "build/*"
+    - "*.egg-info/*"
+    - "credentials.yaml"
+    - ".gitignore"
+    - ".vscode/*"
+    - ".idea/*"
+    - "ai_full_project.txt"
+    - "requirements.txt"
+    # dbt related
+    - "*dbt_packages/*"
+    - "*dbt_modules/*"
+    - "*/target/*"
+    - "*slim_ci/*"
+    - "*package-lock.yml"
+    - "*logs/*"
+    # poetry related
+    - "*poetry.lock"
+    # precommit related
+    - ".pre-commit-config.yaml"
+    # sql fluff related
+    - ".sqlfluffignore"
+    - ".sqlfluff"
+    # other
+    - ".DS_Store"
+    - CHANGELOG.md
+
+
+gitlab:
+  default_gitlab_url: 'your_gitlab_url'
+  default_nros: ['region1', 'region2', 'region3']
+  default_types: ['type1', 'type2', 'type3']
+  default_base_path: "your/gitlab/base/path"
+  default_reviewer_path: "your/gitlab/reviewer/path"
+  default_reviewer_username: "your_username"
+
+asana:
+  default_project_gid: "your_asana_project_gid"
+  default_assignee_gid: "your_asana_assignee_gid"
+  api_base_url: "https://app.asana.com/api/1.0"
+  section_mapping:
+    td: 'To Do'
+    p: 'In Progress'
+    r: 'Review'
+    b: 'Blocked/Paused'
+    d: 'Done'
+
+
+slack:
+  channels:
+    channel1: "your_team_channel"
+    channel2: "your_topic_channel"
+    channel3: "your_support_channel"
+  default_user: "your_username"
+  # users:
+  #   username: "your_slack_user_id"
+
+
+gcloud:
+  project_types:
+    - "internal"
+    - "marts"
+    - "raw"
+  policy_tag_project_type: "internal"  # Policy tags are stored in the internal project
