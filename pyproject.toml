@@ -1,0 +1,36 @@
+[project]
+name = "hv"
+version = "0.1.0"
+description = "Personal CLI tools for automation"
+requires-python = ">=3.9"
+readme = "README.md"
+dependencies = [
+    "typer>=0.9.0",
+    "pyyaml>=6.0.1",
+    "rich>=13.7.0", # For better CLI formatting
+    "pyperclip>=1.8.2", # For clipboard operations
+    "requests>=2.31.0", # For HTTP requests
+    "ruff>=0.8.6",
+]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[project.scripts]
+hv = "hv.cli:app"
+
+[tool.ruff]
+target-version = "py39"
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+]
+ignore = ["B008","E501"]  

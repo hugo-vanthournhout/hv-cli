@@ -1,0 +1,54 @@
+gitlab:
+  file: gitlab.py
+  alias:
+    - gl
+  default_command: "renovate_command"
+  default_params:
+    dry_run: false
+    nro: []
+    type: []
+
+ai:
+  file: ai.py
+  alias:
+    - a
+  default_command: "process_and_claude"
+  default_params:
+    folders: ["."]
+    override_prompt: null # Will use default from variables.yaml if null
+
+asana:
+  file: asana.py
+  alias:
+    - as
+  default_command: "list_my_tasks"
+  default_params:
+    include_done: false
+
+zoom:
+  file: zoom.py
+  alias:
+    - z
+  default_command: "join_daily"
+
+git:
+  file: git.py
+  alias:
+    - g
+  default_command: "sync"
+
+slack:
+  file: slack.py
+  alias:
+    - s
+  default_command: "message"
+
+gcloud:
+  file: gcloud.py
+  alias:
+    - gc
+  default_command: "policy_id"
+  default_params:
+    nro: []
+    output_format: "dbt"
+    output_file: null

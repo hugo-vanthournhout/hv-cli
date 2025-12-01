@@ -1,0 +1,133 @@
+# src/hv/config/variables.example.yaml
+# Copy this file to variables.yaml and fill in your values
+
+# =============================================================================
+# AI Configuration
+# Used by: hv ai commands for project summarization
+# =============================================================================
+ai:
+  default_prompt: "Your default AI prompt here"
+  output_file: "ai_full_project.txt"  # Output filename for project summaries
+  text_extensions: ['.txt', '.py', '.js', '.java', '.c', '.cpp', '.h', '.hpp','.css', '.html', '.xml', '.json', '.yaml', '.yml', '.md','.rst', '.ini', '.conf', '.sh', '.bash', '.zsh', '.sql', '.go', '.rs', '.ts', '.jsx', '.tsx', '.vue', '.rb', '.php', '.pl', '.kt', '.scala', '.swift', '.r', '.lua', '.tcl', '.dockerfile', '.toml'] #, '.csv']
+  warning_paths:  # Paths that trigger a warning before processing
+    - "$HOME"
+    - "/etc"
+    - "/usr"
+    - "/var"
+    - "/opt"
+    - "/root"
+    - "/Documents"
+
+  ignore_patterns:  # Files/folders to exclude from AI processing
+    - "*.pyc"
+    - "__pycache__/*"
+    - ".git/*"
+    - "*.env"
+    - ".venv/*"
+    - "venv/*"
+    - ".uv/*"
+    - "node_modules/*"
+    - "*.log"
+    - "*.sqlite3"
+    - "*.db"
+    - "*.pdf"
+    - "*.jpg"
+    - "*.jpeg"
+    - "*.png"
+    - "*.gif"
+    - "*.mp4"
+    - "*.mov"
+    - "*.bin"
+    - "*.exe"
+    - "*.dll"
+    - "dist/*"
+    - "build/*"
+    - "*.egg-info/*"
+    - "credentials.yaml"
+    - ".gitignore"
+    - ".vscode/*"
+    - ".idea/*"
+    - "ai_full_project.txt"
+    - "requirements.txt"
+    # dbt related
+    - "*dbt_packages/*"
+    - "*dbt_modules/*"
+    - "*/target/*"
+    - "*slim_ci/*"
+    - "*package-lock.yml"
+    - "*logs/*"
+    # poetry related
+    - "*poetry.lock"
+    # precommit related
+    - ".pre-commit-config.yaml"
+    # sql fluff related
+    - ".sqlfluffignore"
+    - ".sqlfluff"
+    # other
+    - ".DS_Store"
+    - CHANGELOG.md
+
+
+# =============================================================================
+# GitLab Configuration
+# Used by: hv gitlab renovate, hv gitlab reviews
+# =============================================================================
+gitlab:
+  default_gitlab_url: 'https://gitlab.example.com'  # Your GitLab instance URL
+  default_nros: ['region1', 'region2', 'region3']  # List of regions/namespaces to process
+  default_types: ['repo_type1', 'repo_type2', 'repo_type3']  # Repository types to scan
+  default_base_path: "your/gitlab/base/path"  # Base path for project discovery
+  default_reviewer_path: "your/gitlab/reviewer/path"  # Path filter for MRs to review
+  default_reviewer_username: "your_username"  # Your GitLab username
+  project_name_template: "{nro}-project-{type}"  # Template for project names, uses {nro} and {type}
+
+# =============================================================================
+# Asana Configuration
+# Used by: hv asana commands for task management
+# =============================================================================
+asana:
+  default_project_gid: "your_asana_project_gid"  # Asana project ID (found in URL)
+  default_assignee_gid: "your_asana_assignee_gid"  # Your Asana user ID
+  api_base_url: "https://app.asana.com/api/1.0"
+  section_mapping:  # Shortcuts for moving tasks between sections
+    td: 'To Do'
+    p: 'In Progress'
+    r: 'Review'
+    b: 'Blocked/Paused'
+    d: 'Done'
+
+
+# =============================================================================
+# Slack Configuration
+# Used by: hv slack commands for messaging
+# =============================================================================
+slack:
+  channels:  # Channel aliases for quick access
+    channel1: "your_team_channel"
+    channel2: "your_topic_channel"
+    channel3: "your_support_channel"
+  default_user: "your_username"
+  # users:  # Optional: map usernames to Slack user IDs
+  #   username: "your_slack_user_id"
+
+
+# =============================================================================
+# Google Cloud Configuration
+# Used by: hv gcloud policy_id, hv gcloud projects
+# =============================================================================
+gcloud:
+  project_prefix: "prefix"  # Prefix for GCP project names
+  project_template: "{prefix}-{nro}-data-{type}"  # Template for project IDs, uses {prefix}, {nro}, {type}
+  default_location: "your-gcp-region"  # Default GCP region (e.g. us-central1)
+  project_types:  # Data layer types in your project architecture
+    - "layer1"
+    - "layer2"
+    - "layer3"
+  policy_tag_project_type: "layer2"  # Which project type contains policy tags
+
+# =============================================================================
+# Zoom Configuration
+# Used by: hv zoom meeting, hv zoom daily
+# =============================================================================
+zoom:
+  domain: "your-org.zoom.us"  # Your organization's Zoom subdomain
